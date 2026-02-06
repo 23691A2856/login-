@@ -1,0 +1,28 @@
+[
+  {
+    "hallticket": "21MITS001",
+    "name": "Ravi Kumar",
+    "branch": "CSE",
+    "sem": "3-2",
+    "subjects": {
+      "DSA": "85",
+      "OS": "78",
+      "DBMS": "88",
+      "CN": "82",
+      "AI": "90"
+    }
+  },
+  {
+    "hallticket": "21MITS002",
+    "name": "Priya Sharma",
+    "branch": "ECE",
+    "sem": "3-2",
+    "subjects": {
+      "Signals": "76",
+      "DSP": "81",
+      "EMI": "79",
+      "VLSI": "85",
+      "Control": "74"
+    }
+  }
+]

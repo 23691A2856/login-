@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MITS | 2024 Results</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    .header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 15px;
+      border-bottom: 3px solid #b50000;
+    }
+
+    .header img {
+      width: 90px;
+      height: auto;
+    }
+
+    .header h1 {
+      color: #b50000;
+      font-size: 22px;
+      margin: 8px 0 4px;
+    }
+
+    .header h2 {
+      color: #002c72;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      background-color: #f9f9f9;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #002c72;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result-box {
+      margin-top: 25px;
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #002c72;
+      color: white;
+    }
+
+    .status-pass {
+      color: green;
+      font-weight: bold;
+    }
+
+    .status-fail {
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #002c72;
+      color: white;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="mitslogo.jpg" alt="MITS Logo">
+    <h1>MITS MADANAPALLE</h1>
+    <h2>Madanapalle Institute of Technology & Science</h2>
+    <p>Deemed to be University | Estd. 1998</p>
+  </div>
+
+  <div class="container">
+    <h2>2024 Results</h2>
+    <form id="studentForm">
+      <label for="branch">Select Branch:</label>
+      <select id="branch" required>
+        <option value="">-- Select Branch --</option>
+        <option value="CSE">Computer Science (CSE)</option>
+        <option value="ECE">Electronics (ECE)</option>
+        <option value="EEE">Electrical (EEE)</option>
+        <option value="MECH">Mechanical (MECH)</option>
+        <option value="CIVIL">Civil (CIVIL)</option>
+      </select>
+
+      <label for="name">Enter Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="dob">Enter Date of Birth:</label>
+      <input type="date" id="dob" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="result-box" id="resultBox">
+      <h3>Student Details</h3>
+      <p><strong>Branch:</strong> <span id="showBranch"></span></p>
+      <p><strong>Name:</strong> <span id="showName"></span></p>
+      <p><strong>Date of Birth:</strong> <span id="showDOB"></span></p>
+      <h3>Mark Sheet (Demo)</h3>
+
+      <table>
+        <tr>
+          <th>Subject</th>
+          <th>Points</th>
+          <th>Grade</th>
+          <th>Status</th>
+        </tr>
+        <tbody id="marksTable"></tbody>
+      </table>
+
+      <p><strong>Total Points:</strong> <span id="totalPoints"></span></p>
+      <p><strong>Average Points:</strong> <span id="avgPoints"></span></p>
+      <p><strong>Overall Status:</strong> <span id="finalStatus"></span></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Madanapalle Institute of Technology & Science (MITS). All Rights Reserved.
+  </footer>
+
+  <script>
+    // Convert points to grade
+    function getGrade(points) {
+      if (points >= 9.5) return "A+";
+      if (points >= 9) return "A";
+      if (points >= 8) return "B";
+      if (points >= 7) return "C";
+      if (points >= 6) return "D";
+      return "F";
+    }
+
+    const studentData = [
+      { name: "Ravi Kumar", branch: "CSE", dob: "2003-04-10", points: [9.8, 9.0, 8.5, 9.2, 9.4] },
+      { name: "Priya Sharma", branch: "ECE", dob: "2002-11-22", points: [8.8, 9.1, 7.9, 8.4, 9.0] },
+      { name: "Suresh Babu", branch: "EEE", dob: "2003-01-15", points: [7.8, 8.0, 8.2, 7.5, 7.0] },
+      { name: "Anjali Devi", branch: "MECH", dob: "2002-09-18", points: [9.5, 9.3, 9.7, 9.0, 9.4] },
+      { name: "Vikram Reddy", branch: "CIVIL", dob: "2003-05-25", points: [8.0, 7.8, 7.5, 8.2, 7.9] }
+    ];
+
+    const subjects = ["Python", "Java", "Data Structures", "DBMS", "Maths"];
+
+    function showResult() {
+      const branch = document.getElementById('branch').value;
+      const name = document.getElementById('name').value.trim();
+      const dob = document.getElementById('dob').value;
+
+      if (!branch || !name || !dob) {
+        alert('Please fill all fields.');
+        return;
+      }
+
+      const student = studentData.find(
+        s => s.name.toLowerCase() === name.toLowerCase() && s.branch === branch && s.dob === dob
+      );
+
+      const resultBox = document.getElementById('resultBox');
+      const marksTable = document.getElementById('marksTable');
+      marksTable.innerHTML = "";
+
+      document.getElementById('showBranch').innerText = branch;
+      document.getElementById('showName').innerText = name;
+      document.getElementById('showDOB').innerText = dob;
+
+      if (student) {
+        let total = 0;
+        let overallPass = true;
+
+        student.points.forEach((p, i) => {
+          const grade = getGrade(p);
+          const status = p >= 6 ? "P" : "F";
+          if (status === "F") overallPass = false;
+          total += p;
+
+          marksTable.innerHTML += `<tr>
+            <td>${subjects[i]}</td>
+            <td>${p}</td>
+            <td>${grade}</td>
+            <td class="${status === 'P' ? 'status-pass' : 'status-fail'}">${status}</td>
+          </tr>`;
+        });
+
+        const avg = (total / student.points.length).toFixed(2);
+        document.getElementById('totalPoints').innerText = total.toFixed(2);
+        document.getElementById('avgPoints').innerText = avg;
+
+        const overallStatus = overallPass ? "PASS" : "FAIL";
+        const statusColor = overallPass ? "status-pass" : "status-fail";
+        document.getElementById('finalStatus').innerHTML = `<span class="${statusColor}">${overallStatus}</span>`;
+
+      } else {
+        marksTable.innerHTML = `<tr><td colspan="4">❌ Student record not found. Please check your details.</td></tr>`;
+        document.getElementById('totalPoints').innerText = "-";
+        document.getElementById('avgPoints').innerText = "-";
+        document.getElementById('finalStatus').innerText = "-";
+      }
+
+      resultBox.style.display = 'block';
+    }
+  </script>
+
+    <script>
+      // Use form submit so browser 'required' attributes work.
+      document.getElementById('studentForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // stop actual form submission
+        // call the existing handler
+        showResult();
+      });
+    </script>
+
+</body>
+</html>

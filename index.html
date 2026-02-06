@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MITS | Student Results</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 15px;
+      border-bottom: 3px solid #b50000;
+    }
+
+    .header img {
+      width: 90px;
+      height: auto;
+    }
+
+    .header h1 {
+      color: #b50000;
+      font-size: 22px;
+      margin: 8px 0 4px;
+    }
+
+    .header h2 {
+      color: #002c72;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background-color: #b50000;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background-color: #8b0000;
+    }
+
+    /* Main Content */
+    .content {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h3 {
+      color: #002c72;
+      border-bottom: 2px solid #b50000;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    ul li::before {
+      content: "❯";
+      color: #b50000;
+      margin-right: 8px;
+    }
+
+    a.result-link {
+      color: #0048ba;
+      text-decoration: none;
+    }
+
+    a.result-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #002c72;
+      color: white;
+      padding: 10px 0;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="mitslogo.jpg" alt="MITS Logo">
+    <h1>MITS MADANAPALLE</h1>
+    <h2>Madanapalle Institute of Technology & Science</h2>
+    <p>Deemed to be University | Estd. 1998</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">NAAC</a>
+    <a href="#">NIRF</a>
+    <a href="#">UGC Affairs</a>
+    <a href="#">Newsletter</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2 style="text-align:center;">Results</h2>
+
+    <h3>UG Results</h3>
+    <ul>
+      <!-- This link opens the results_2024.html page -->
+      <li><a href="results_2024.html" class="result-link">Results Announced from May 2024 onwards - Results Link 1</a></li>
+      <li><a href="#" class="result-link">Results Announced up to April 2024</a></li>
+      <li><a href="#" class="result-link">Recounting Results Announced from May 2024 onwards</a></li>
+    </ul>
+
+    <h3>PG Results</h3>
+    <ul>
+      <li><a href="#" class="result-link">Results Announced from May 2024 onwards</a></li>
+      <li><a href="#" class="result-link">Results Announced up to April 2024</a></li>
+      <li><a href="#" class="result-link">Recounting Results Announced from May 2024 onwards</a></li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Madanapalle Institute of Technology & Science (MITS). All Rights Reserved.
+  </footer>
+
+</body>
+</html>
